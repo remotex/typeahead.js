@@ -1,7 +1,7 @@
 /*!
  * typeahead.js 0.10.5
  * https://github.com/twitter/typeahead.js
- * Copyright 2013-2014 Twitter, Inc. and other contributors; Licensed MIT
+ * Copyright 2013-2015 Twitter, Inc. and other contributors; Licensed MIT
  */
 
 (function($) {
@@ -452,7 +452,7 @@
                 var inputValue, areEquivalent, hasDifferentWhitespace;
                 inputValue = this.getInputValue();
                 areEquivalent = areQueriesEquivalent(inputValue, this.query);
-                hasDifferentWhitespace = areEquivalent ? this.query.length !== inputValue.length : false;
+                hasDifferentWhitespace = areEquivalent ? typeof this.query !== "undefined" && this.query.length !== inputValue.length : false;
                 this.query = inputValue;
                 if (!areEquivalent) {
                     this.trigger("queryChanged", this.query);
